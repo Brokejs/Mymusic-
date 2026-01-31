@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean Spotify-style music streaming website" />
+  <title>My Music</title>
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1db954">
+
+  <!-- PWA -->
+  <meta name="theme-color" content="#1db954">
+</head>
+
+<body>
+
+<!-- 🔥 WELCOME MODAL -->
+<div id="welcomeModal" class="welcome-modal">
+  <div class="welcome-content">
+    <img src="images/music-logo.jpg" class="welcome-img" alt="Logo">
+    <h2>Welcome to My Music</h2>
+    <p>Stream your favorite vibes 🎶</p>
+    <button id="closeWelcome">Start Listening</button>
+  </div>
+</div>
+
+<!-- 🟢 APP CONTAINER -->
+<div class="app">
+
+  <!-- 🏠 HOME VIEW -->
+  <section id="homeView" class="view active">
+
+    <!-- HEADER -->
+    <header class="home-header">
+      <h1>My Music</h1>
+      <p>Feel the vibe</p>
+    </header>
+
+    <!-- FILTER BAR -->
+    <div class="nav-bar">
+      <button onclick="filterSongs('all')" class="active">All</button>
+      <button onclick="filterSongs('pop')">Pop</button>
+      <button onclick="filterSongs('hiphop')">Hip-Hop</button>
+      <button onclick="filterSongs('afrobeat')">Afrobeat</button>
+      <button onclick="filterSongs('dancehall')">Dancehall</button>
+      <button id="myMusicBtn">My Music</button>
+<input type="file" id="fileInput" multiple accept="audio/*" style="display:none;">
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <i class="bx bx-microphone" onclick="startVoiceSearch()"></i>
+      <input type="text" id="searchInput" placeholder="Search songs..." onkeyup="searchSongs()">
+      <i class="bx bx-x" onclick="clearSearch()"></i>
+    </div>
+<hr>
+<p>Suggested songs for you?</p>
+<br>
+    <!-- PLAYLIST -->
+    <ul class="playlist" id="playlist"></ul>
+
+    
+  </section>
+<!-- PLAYER VIEW -->
+<section id="playerView" class="hidden">
+    <i id="back" class="bx bx-arrow-back back-btn"></i>
+    <h2 id="song-title">Select a song</h2>
+    <audio id="audio"></audio>
+    <br>
+    <canvas id="visualizer"></canvas>
+
+    <div class="progress-container">
+        <span id="current-time">0:00</span>
+        <input type="range" id="progress" value="0" min="0" max="100">
+        <span id="duration">0:00</span>
+    </div>
+
+    <div class="equalizer-panel">
+        <label>Bass</label>
+        <input type="range" min="-10" max="10" value="0" id="bass">
+        <label>Mids</label>
+        <input type="range" min="-10" max="10" value="0" id="mid">
+        <label>Highs</label>
+        <input type="range" min="-10" max="10" value="0" id="treble">
+    </div>
+<br>
+    <div class="controls">
+        <i id="shuffle" class="bx bx-shuffle"></i>
+        <i id="prev" class="bx bx-skip-previous"></i>
+        <i id="play" class="bx bx-play"></i>
+        <i id="next" class="bx bx-skip-next"></i>
+        <i id="loop" class="bx bx-repeat"></i>
+        <i id="download" class="bx bx-download"></i>
+    </div>
+</section>
+
+</div>
+
+<!-- 📞 CONTACT -->
+<div class="contact">
+  <a href="https://wa.me/256775844831" target="_blank">
+    <i class="bx bxl-whatsapp"></i>
+    <span>Chat on WhatsApp</span>
+  </a>
+  <p>📞 0709 147 716</p>
+</div>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+</body>
+</html>
